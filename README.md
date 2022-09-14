@@ -18,7 +18,7 @@
 
 ### Features
 
-- [X] Tela do Home;
+- [X] Tela Home;
 
 ## ✅ Instrução para rodar o projeto na maquina local;
 
