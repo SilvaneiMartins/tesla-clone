@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
                     HomeHeader()
                     CustomDivider()
@@ -19,6 +19,9 @@ struct ContentView: View {
                     CategoryView(title: "Atalhos Rápidos", showEdit: true, actionItems: quickShortcuts)
                     CustomDivider()
                     CategoryView(title: "Ações Recentes", actionItems: recentActions)
+                    CustomDivider()
+                    AllSettings()
+                    ReorderButton()
                 }
                 .padding()
             }
@@ -214,3 +217,59 @@ let recentActions: [ActionItem] = [
     ActionItem(icon: "fanblades", text: "Ventidor Desligado"),
     ActionItem(icon: "person.fill.viewfinder", text: "Convocar")
 ]
+
+struct AllSettings: View {
+    var body: some View {
+        CategoryHeader(title: "Configurações")
+        LazyVGrid(columns: [GridItem(.fixed(190)), GridItem(.fixed(190))]) {
+            SettingsBlock(icon: "car.fill", title: "Controles", subtitle: "Carro bloqueado")
+            SettingsBlock(icon: "fanblades", title: "Climatização", subtitle: "Interior 68° F", backgroundColor: Color("Blue"))
+            SettingsBlock(icon: "location.fill", title: "Localização", subtitle: "Edifício Empire State")
+            SettingsBlock(icon: "checkerboard.shield", title: "Seguraça", subtitle: "0 Eventos detectados")
+            SettingsBlock(icon: "sparkles", title: "Atualização", subtitle: "3 Atualizações disponíveis")
+        }
+    }
+}
+
+struct SettingsBlock: View {
+    var icon: String
+    var title: String
+    var subtitle: String
+    
+    var backgroundColor: Color = Color.white.opacity(0.05)
+    
+    var body: some View {
+        HStack {
+            Image(systemName: icon)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .fontWeight(.semibold)
+                    .font(.system(size: 17, weight: .medium, design: .default))
+                
+                Text(subtitle.uppercased())
+                    .font(.system(size: 10, weight: .medium, design: .default))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .lineLimit(1)
+            }
+            Spacer()
+            Image(systemName: "chevron.right")
+        }
+        .padding()
+        .background(backgroundColor)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white.opacity(0.1), lineWidth: 0.5))
+    }
+}
+
+struct ReorderButton: View {
+    var body: some View {
+        Button(action: {}) {
+            Text("Reordenar Grupos")
+                .font(.caption)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 15)
+                .background(Color.white.opacity(0.05))
+                .clipShape(Capsule())
+        }
+    }
+}
