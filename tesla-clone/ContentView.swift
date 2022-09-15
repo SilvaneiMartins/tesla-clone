@@ -9,27 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 20) {
-                    HomeHeader()
-                    CustomDivider()
-                    CarSection()
-                    CustomDivider()
-                    CategoryView(title: "Atalhos Rápidos", showEdit: true, actionItems: quickShortcuts)
-                    CustomDivider()
-                    CategoryView(title: "Ações Recentes", actionItems: recentActions)
-                    CustomDivider()
-                    AllSettings()
-                    ReorderButton()
+        NavigationView {
+            ZStack {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 20) {
+                        HomeHeader()
+                        CustomDivider()
+                        CarSection()
+                        CustomDivider()
+                        CategoryView(title: "Atalhos Rápidos", showEdit: true, actionItems: quickShortcuts)
+                        CustomDivider()
+                        CategoryView(title: "Ações Recentes", actionItems: recentActions)
+                        CustomDivider()
+                        AllSettings()
+                        ReorderButton()
+                    }
+                    .padding()
                 }
-                .padding()
+                VoiceCommandButton()
             }
-            VoiceCommandButton()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("DarkGray"))
+            .foregroundColor(Color.white)
+            .navigationTitle("Mach Five")
+            .navigationBarHidden(true)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("DarkGray"))
-        .foregroundColor(Color.white)
         
     }
 }
@@ -222,7 +226,9 @@ struct AllSettings: View {
     var body: some View {
         CategoryHeader(title: "Configurações")
         LazyVGrid(columns: [GridItem(.fixed(190)), GridItem(.fixed(190))]) {
-            SettingsBlock(icon: "car.fill", title: "Controles", subtitle: "Carro bloqueado")
+            NavigationLink(destination: CarControlsView()) {
+                SettingsBlock(icon: "car.fill", title: "Controles", subtitle: "Carro bloqueado")
+            }
             SettingsBlock(icon: "fanblades", title: "Climatização", subtitle: "Interior 68° F", backgroundColor: Color("Blue"))
             SettingsBlock(icon: "location.fill", title: "Localização", subtitle: "Edifício Empire State")
             SettingsBlock(icon: "checkerboard.shield", title: "Seguraça", subtitle: "0 Eventos detectados")
@@ -239,22 +245,24 @@ struct SettingsBlock: View {
     var backgroundColor: Color = Color.white.opacity(0.05)
     
     var body: some View {
-        HStack {
+        HStack(alignment: .center, spacing: 2) {
             Image(systemName: icon)
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .fontWeight(.semibold)
-                    .font(.system(size: 17, weight: .medium, design: .default))
+                    .font(.system(size: 14, weight: .medium, design: .default))
                 
                 Text(subtitle.uppercased())
-                    .font(.system(size: 10, weight: .medium, design: .default))
+                    .font(.system(size: 8, weight: .medium, design: .default))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(1)
             }
+            .padding(.leading, 8)
             Spacer()
             Image(systemName: "chevron.right")
         }
-        .padding()
+        .padding(.horizontal, 8)
+        .padding(.vertical, 20)
         .background(backgroundColor)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white.opacity(0.1), lineWidth: 0.5))

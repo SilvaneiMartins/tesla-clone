@@ -11,6 +11,7 @@
 		31660A5D28D20C7E00F0B051 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31660A5C28D20C7E00F0B051 /* ContentView.swift */; };
 		31660A5F28D20C8000F0B051 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31660A5E28D20C8000F0B051 /* Assets.xcassets */; };
 		31660A6228D20C8000F0B051 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31660A6128D20C8000F0B051 /* Preview Assets.xcassets */; };
+		31FC665028D2C18200CB5FE1 /* CarControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC664F28D2C18200CB5FE1 /* CarControlsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		31660A5C28D20C7E00F0B051 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31660A5E28D20C8000F0B051 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31660A6128D20C8000F0B051 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		31FC664F28D2C18200CB5FE1 /* CarControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarControlsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				31660A5A28D20C7E00F0B051 /* tesla_cloneApp.swift */,
 				31660A5C28D20C7E00F0B051 /* ContentView.swift */,
+				31FC664F28D2C18200CB5FE1 /* CarControlsView.swift */,
 				31660A5E28D20C8000F0B051 /* Assets.xcassets */,
 				31660A6028D20C8000F0B051 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31660A5D28D20C7E00F0B051 /* ContentView.swift in Sources */,
+				31FC665028D2C18200CB5FE1 /* CarControlsView.swift in Sources */,
 				31660A5B28D20C7E00F0B051 /* tesla_cloneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
