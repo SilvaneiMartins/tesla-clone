@@ -96,32 +96,6 @@ struct HomeHeader: View {
     }
 }
 
-struct GeneralButton: View {
-    var icon: String
-    
-    var body: some View {
-        Image(systemName: icon)
-            .imageScale(.large)
-            .frame(width: 60, height: 60)
-            .background(Color.white.opacity(0.05))
-            .clipShape(Circle())
-            .overlay(
-                Circle()
-                    .stroke(Color.white.opacity(0.4), lineWidth: 0.5)
-            )
-    }
-}
-
-struct CustomDivider: View {
-    var body: some View {
-        Rectangle()
-            .frame(maxWidth: .infinity)
-            .frame(height: 0.5)
-            .background(Color.white)
-            .opacity(0.1)
-    }
-}
-
 struct CarSection: View {
     var body: some View {
         HStack(alignment: .center) {
@@ -189,26 +163,6 @@ struct CategoryView: View {
     }
 }
 
-struct ActionButton: View {
-    var item: ActionItem
-    
-    var body: some View {
-        VStack(alignment: .center) {
-            GeneralButton(icon: item.icon)
-            Text(item.text)
-                .frame(width: 75)
-                .frame(height: 45)
-                .font(.system(size: 12, weight: .semibold, design: .default))
-                .multilineTextAlignment(.center)
-        }
-    }
-}
-
-struct ActionItem: Hashable {
-    var icon: String
-    var text: String
-}
-
 let quickShortcuts: [ActionItem] = [
     ActionItem(icon: "bolt.fill", text: "Carregando"),
     ActionItem(icon: "fanblades.fill", text: "Ventidor Ligado"),
@@ -230,7 +184,9 @@ struct AllSettings: View {
                 SettingsBlock(icon: "car.fill", title: "Controles", subtitle: "Carro bloqueado")
             }
             SettingsBlock(icon: "fanblades", title: "Climatização", subtitle: "Interior 68° F", backgroundColor: Color("Blue"))
-            SettingsBlock(icon: "location.fill", title: "Localização", subtitle: "Edifício Empire State")
+            NavigationLink(destination: LocationView()) {
+                SettingsBlock(icon: "location.fill", title: "Localização", subtitle: "Edifício Empire State")
+            }
             SettingsBlock(icon: "checkerboard.shield", title: "Seguraça", subtitle: "0 Eventos detectados")
             SettingsBlock(icon: "sparkles", title: "Atualização", subtitle: "3 Atualizações disponíveis")
         }

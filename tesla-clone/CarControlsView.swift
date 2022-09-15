@@ -70,16 +70,7 @@ struct CarControlsView_Previews: PreviewProvider {
 struct CarLockButton: View {
     var body: some View {
         Button(action: {}) {
-            Label("Desbloquear Carro", systemImage: "lock.fill")
-                .font(.system(size: 18, weight: .medium, design: .default))
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.white.opacity(0.05))
-                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 30, style: .continuous)
-                        .stroke(Color.white.opacity(0.1), lineWidth: 0.5)
-                )
+            FullButton(text: "Desbloquear Carro", icon: "lock.fill")
         }
     }
 }
