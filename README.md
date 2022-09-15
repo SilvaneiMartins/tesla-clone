@@ -1,7 +1,7 @@
 <h1 align="center">
    APP TESLA CLONE
     <br />
-   Versão: 1.0
+   Versão: 1.1
 </h1>
 
 <h3 align="center">
@@ -10,6 +10,8 @@
 </h3>
 
 <h1 align="center">
+    <a href="https://imgur.com/YTIPL0E"><img src="https://i.imgur.com/YTIPL0E.png" title="source: imgur.com" /></a>
+    <br />
     <a href="https://imgur.com/BkdElwq"><img src="https://i.imgur.com/BkdElwq.png" title="source: imgur.com" /></a>
     <br />
 </h1>
