@@ -1,7 +1,7 @@
 <h1 align="center">
    APP TESLA CLONE
     <br />
-   Versão: 1.1
+   Versão: 1.0
 </h1>
 
 <h3 align="center">
