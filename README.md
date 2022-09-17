@@ -6,7 +6,7 @@
 
 <h3 align="center">
 
-	🚧  APLICAÇÃO MOBILE PARA IOS TESLA CLONE...  🚧
+	🚧  APLICAÇÃO MOBILE PARA IPHONE TESLA CLONE...  🚧
 </h3>
 
 <h1 align="center">
